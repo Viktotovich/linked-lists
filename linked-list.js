@@ -40,3 +40,22 @@
     12 - removeAt(index), to remove a node at a give index
         -Same as insertAt(), but if we have to re-index all nodes - then O(n^2)
 */
+
+class LinkedList {
+  constructor() {
+    this.head = {};
+  }
+}
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.index = this.getIndex();
+    this.pointerNext = "c"; //
+    this.pointerPrevious = "c"; //
+  }
+
+  getIndex() {
+    return; //something
+  }
+}
