@@ -54,7 +54,7 @@ class LinkedList {
   }
 
   pop() {
-    //safe-guards from this.at prevent head from being deleted
+    //this.at is a safeguard preventing head from being deleted
     let preLastEl = this.at(this.size - 1);
     preLastEl.next = null;
     this.size -= 1;
