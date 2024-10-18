@@ -62,17 +62,56 @@ class LinkedList {
 
   contains(searchItem) {
     let currentObj = this.next;
+
     for (let i = 0; i < this.size; i++) {
       if (currentObj.value === searchItem) {
-        console.log("true");
+        console.log(true);
         return true;
       } else if (currentObj.next === null) {
-        console.log("no");
+        console.log(false);
         return false;
       } else {
         currentObj = currentObj.next;
       }
     }
+  }
+
+  find(searchItem) {
+    let index = 0;
+    let currentObj = this.next;
+
+    for (let i = 0; i < this.size; i++) {
+      if (currentObj.value === searchItem) {
+        console.log(`${searchItem} is at index ${index}`);
+        return index;
+      } else if (currentObj.next === null) {
+        console.log(`We could not find ${searchItem} at any index`);
+        return false;
+      } else {
+        currentObj = currentObj.next;
+        index++;
+      }
+    }
+  }
+
+  toString() {
+    /* 
+    There is an elegant way to do it through an Array that is O(n^2), and there is a less elegant one through O(n). This is 
+    the less elegant version, but hey that's about a B- on time efficiency
+    */
+    let currentObj = this.next;
+    let stringArray = `( ${currentObj.value} )`;
+
+    currentObj = currentObj.next;
+
+    for (let i = 1; i < this.size; i++) {
+      stringArray += ` --> ( ${currentObj.value} ) `;
+      currentObj = currentObj.next;
+    }
+
+    stringArray += `--> null`;
+
+    return stringArray;
   }
 }
 
@@ -99,3 +138,20 @@ doge.contains("php elephant");
 doge.contains("Mikhail");
 doge.contains("WOLF");
 doge.contains("wolf");
+
+doge.find("bobby");
+doge.find("cat");
+doge.find("my father");
+
+// final test
+const list = new LinkedList();
+
+list.append("dog");
+list.append("cat");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
+
+console.log(list.toString());
+console.log(doge.toString());
