@@ -51,17 +51,16 @@ class LinkedList {
 
   at(index) {
     function getToIndex(index, startPoint) {
-      console.log(startPoint);
       if (index === 0) {
         return startPoint;
       } else if (startPoint.next === null) {
         console.error(`Such index does not exist`);
       } else {
-        getToIndex(index - 1, startPoint.next);
+        return getToIndex(index - 1, startPoint.next);
       }
     }
 
-    const elAtIndex = getToIndex(index, this.headObj);
+    let elAtIndex = getToIndex(index, this.headObj);
     console.log(elAtIndex);
     return elAtIndex;
   }
